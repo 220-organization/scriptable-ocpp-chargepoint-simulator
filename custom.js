@@ -1,10 +1,11 @@
-if(!process.env.WS_CONNECT_URL) {
-  throw new Error("env variable WS_CONNECT_URL not set!");
-}
+// if(!process.env.WS_CONNECT_URL) {
+//   throw new Error("env variable WS_CONNECT_URL not set!");
+// }
 let cp, heartbeatTimer;
 try {
   // WebSocket Connect (no OCPP)
-  cp = await connect(process.env.WS_CONNECT_URL);
+  // cp = await connect(process.env.WS_CONNECT_URL);
+  cp = await connect('ws://95.217.219.73:8080/steve/websocket/CentralSystemService/ChargeBoxID220');
   // start a web-listener and wait for GET on /stop
   const webserver = cp.startListener(8080, '0.0.0.0', {'admin': 'secret'});
   webserver.get('/stop', (req, res) => {
@@ -58,7 +59,7 @@ try {
         {connectorId: 1, errorCode: "NoError", status: "Preparing"});
       cp.transaction = await cp.startTransaction({
         connectorId: 1,
-        idTag: "ccc",
+        idTag: "IdTag220",
         meterStart: meterCount,
         timestamp: new Date().toISOString()
       });

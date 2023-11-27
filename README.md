@@ -1,3 +1,14 @@
+Start it:
+
+```
+./start.sh --v ./custom.js
+```
+
+
+
+
+
+
 # Scriptable OCPP Chargepoint Simulator
 
 ![Node.js CI](https://github.com/oglimmer/scriptable-ocpp-chargepoint-simulator/workflows/Node.js%20CI/badge.svg)
